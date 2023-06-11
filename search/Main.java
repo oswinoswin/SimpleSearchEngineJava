@@ -9,8 +9,6 @@ public class Main {
             menu.populateSE();
         }
         menu.showMenu();
-        SimpleSearchEngine simpleSE = new SimpleSearchEngine();
-        simpleSE.printAll();
     }
 
 }
