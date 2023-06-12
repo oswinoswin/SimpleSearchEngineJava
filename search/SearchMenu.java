@@ -2,6 +2,7 @@ package search;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -74,8 +75,17 @@ public class SearchMenu {
     }
 
     public void findPerson() {
+        System.out.println("Select a matching strategy: ALL, ANY, NONE");
+        String strategy = scanner.next();
+        scanner.nextLine();
+        try {
+            simpleSearchEngine.setSearchStrategy(strategy);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            return;
+        }
         System.out.println("Enter a name or email to search all suitable people.");
-        String person = scanner.next();
+        String person = scanner.nextLine();
         simpleSearchEngine.printMatchingPeople(person);
 
     }
